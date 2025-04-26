@@ -1,5 +1,6 @@
 import './style.css';
-import getRandSequence from './utils/randSeqenceGen';
+import { genPassword } from './utils/genPassword.js';
+
 // import javascriptLogo from './javascript.svg';
 // import viteLogo from '/vite.svg';
 // import { setupCounter } from './counter.js';
@@ -23,4 +24,20 @@ import getRandSequence from './utils/randSeqenceGen';
 // `;
 
 // setupCounter(document.querySelector('#counter'));
-getRandSequence();
+
+document.querySelector('#app').innerHTML = `
+  <div>
+    <p>Your password is:</p>
+    <div class='password-field'>
+      <p id="passwordDisplay"></p>
+    </div>
+    <button id='genPassword'>Generate New Password</button>
+  </div>
+`;
+
+// Grab button and password display
+const genPasswordButton = document.querySelector('#genPassword');
+const passwordDisplay = document.querySelector('#passwordDisplay');
+
+// Hook up the event listener
+genPassword(genPasswordButton, passwordDisplay);
