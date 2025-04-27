@@ -7,13 +7,13 @@ const router = Router();
 
 //Define route to serve index.html
 //!!! I don't think I need req since this is JavaScript and I'm not using req
-router.get('/', (res) => {
+router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../../../client/dist/index.html'));
   console.log(`PATH NAME: ${__dirname}/../../../client/dist/index.html`);
 });
 
 //!!! I don't think I need req since this is JavaScript and I'm not using req
-router.get('*', (res) => {
+router.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../../client/dist/index.html'));
   console.log(`PATH NAME: ${__dirname}/../../../client/dist/index.html`);
 });
