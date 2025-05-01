@@ -11,9 +11,10 @@ import getRandSequence from './randSeqenceGen.js';
 // };
 
 export const genPassword = (element, passwordField) => {
-  element.addEventListener('click', () => {
-    getWords();
+  element.addEventListener('click', async() => {
+    const data = await getWords();
+    console.log('data = ', data);
     const randSequence = getRandSequence();
-    passwordField.innerHTML = randSequence;
+    passwordField.innerHTML = data+randSequence;
   });
 };

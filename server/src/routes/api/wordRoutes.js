@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import dotenv from 'dotenv';
 
-import generateWord from '../../services/wordService.js';
+import generatePhrase from '../../services/wordService.js';
 
 dotenv.config();
 
@@ -10,11 +10,12 @@ const router = Router();
 router.get('/', async (req, res) => {
   try {
     console.log('inside server route function.');
-    const wordData = await generateWord();
+    const wordData = await generatePhrase();
 
     if(!wordData){
       return res.status(404).json('Word data not found');
     }else {
+      console.log('wordData = ', wordData);
       res.json(wordData);
     }
   }catch(error) {
